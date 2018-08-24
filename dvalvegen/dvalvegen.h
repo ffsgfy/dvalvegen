@@ -599,10 +599,6 @@ namespace dvalvegen {
 			}
 		}
 
-		if (m_prop->GetName() == "\"m_flLastDamageTime\"") {
-			std::string();
-		}
-
 		stream << ind.get(indents) << "inline " << type2str(m_prop) << "* " << getFormattedName() << "() {" << std::endl;
 		stream << ind.get(indents + 1) << "static int offset = dvalvegen::getOffset(\"" << parent.getName() << "\", \"" << getFormattedName() << "\");" << std::endl;
 		stream << ind.get(indents + 1) << "return (" << type2str(m_prop) << "*)((int)this + offset);" << std::endl;
