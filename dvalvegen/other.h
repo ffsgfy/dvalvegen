@@ -14,15 +14,13 @@ inline Type call_vfunc(void* thisPtr, int index)
 
 typedef void* (*CreateInterfaceFn)(const char* pName, int* pReturnCode);
 
-CreateInterfaceFn captureFactory(const char* dllname) {
-	HMODULE mod = GetModuleHandleA(dllname);
-	return (CreateInterfaceFn)GetProcAddress(mod, "CreateInterface");
+CreateInterfaceFn captureFactory(HMODULE hmodule) {
+	return (CreateInterfaceFn)GetProcAddress(hmodule, "CreateInterface");
 }
 
 template <class T>
-T* captureInterface(const char* dllname, std::string interfacename)
-{
-	CreateInterfaceFn factory = captureFactory(dllname);
+T* captureInterface(HMODULE hmodule, std::string interfacename) {
+	CreateInterfaceFn factory = captureFactory(hmodule);
 	if (!factory) {
 		return nullptr;
 	}
