@@ -7,8 +7,6 @@
 #include <sstream>
 #include <filesystem>
 
-namespace fs = std::experimental::filesystem;
-
 namespace dvalvegen {
 	using uint = unsigned int;
 
@@ -693,7 +691,7 @@ namespace dvalvegen {
 
 		dirpath += "/dvalvegen/";
 
-		fs::create_directories(dirpath);
+		std::filesystem::create_directories(dirpath);
 
 		auto write_dvalvegen = [&dirpath]() {
 			std::ofstream oh{ dirpath + "dvalvegen.h" };
