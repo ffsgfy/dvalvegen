@@ -1,5 +1,5 @@
 # dvalvegen
-Generates an SDK based on netvars when injected into any Source Engine based game *(tested only partly on TF2 though, there may be scary bugs)*
+Generates an SDK based on netvars when injected into any Source Engine based game
 
 Offsets are aquired dynamically at runtime, members can be accesed via inline functions which return a pointer (can easily be changed to return a reference if that's your thing, look [here](https://github.com/ffsgfy/dvalvegen/blob/master/dvalvegen/dvalvegen.h#L579))
 
